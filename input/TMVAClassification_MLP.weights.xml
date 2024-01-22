@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<MethodSetup Method="MLP::MLP">
+  <GeneralInfo>
+    <Info name="TMVA Release" value="4.2.1 [262657]"/>
+    <Info name="ROOT Release" value="6.12/07 [396295]"/>
+    <Info name="Creator" value="rgoldouz"/>
+    <Info name="Date" value="Thu Jan 20 07:00:02 2022"/>
+    <Info name="Host" value="Linux cmsbuild90.cern.ch 2.6.32-696.30.1.el6.x86_64 #1 SMP Tue May 22 06:09:36 CEST 2018 x86_64 x86_64 x86_64 GNU/Linux"/>
+    <Info name="Dir" value="/afs/crc.nd.edu/user/r/rgoldouz/BNV/NanoAnalysis/MVA"/>
+    <Info name="Training events" value="2000"/>
+    <Info name="TrainingTime" value="1.54662075e+03"/>
+    <Info name="AnalysisType" value="Classification"/>
+  </GeneralInfo>
+  <Options>
+    <Option name="NCycles" modified="Yes">600</Option>
+    <Option name="HiddenLayers" modified="Yes">N+5</Option>
+    <Option name="NeuronType" modified="Yes">tanh</Option>
+    <Option name="RandomSeed" modified="No">1</Option>
+    <Option name="EstimatorType" modified="No">CE</Option>
+    <Option name="NeuronInputType" modified="No">sum</Option>
+    <Option name="V" modified="Yes">False</Option>
+    <Option name="VerbosityLevel" modified="No">Default</Option>
+    <Option name="VarTransform" modified="Yes">N</Option>
+    <Option name="H" modified="Yes">True</Option>
+    <Option name="CreateMVAPdfs" modified="No">False</Option>
+    <Option name="IgnoreNegWeightsInTraining" modified="No">False</Option>
+    <Option name="TrainingMethod" modified="No">BP</Option>
+    <Option name="LearningRate" modified="No">2.000000e-02</Option>
+    <Option name="DecayRate" modified="No">1.000000e-02</Option>
+    <Option name="TestRate" modified="Yes">5</Option>
+    <Option name="EpochMonitoring" modified="No">False</Option>
+    <Option name="Sampling" modified="No">1.000000e+00</Option>
+    <Option name="SamplingEpoch" modified="No">1.000000e+00</Option>
+    <Option name="SamplingImportance" modified="No">1.000000e+00</Option>
+    <Option name="SamplingTraining" modified="No">True</Option>
+    <Option name="SamplingTesting" modified="No">False</Option>
+    <Option name="ResetStep" modified="No">50</Option>
+    <Option name="Tau" modified="No">3.000000e+00</Option>
+    <Option name="BPMode" modified="No">sequential</Option>
+    <Option name="BatchSize" modified="No">-1</Option>
+    <Option name="ConvergenceImprove" modified="No">1.000000e-30</Option>
+    <Option name="ConvergenceTests" modified="No">-1</Option>
+    <Option name="UseRegulator" modified="Yes">False</Option>
+    <Option name="UpdateLimit" modified="No">10000</Option>
+    <Option name="CalculateErrors" modified="No">False</Option>
+    <Option name="WeightRange" modified="No">1.000000e+00</Option>
+  </Options>
+  <Variables NVar="10">
+    <Variable VarIndex="0" Expression="lep1Pt" Label="lep1Pt" Title="lep1Pt" Unit="GeV" Internal="lep1Pt" Type="F" Min="2.58648682e+01" Max="2.50160522e+03"/>
+    <Variable VarIndex="1" Expression="lep2Pt" Label="lep2Pt" Title="lep2Pt" Unit="GeV" Internal="lep2Pt" Type="F" Min="2.00222626e+01" Max="6.94469788e+02"/>
+    <Variable VarIndex="2" Expression="llM" Label="llM" Title="llM" Unit="GeV" Internal="llM" Type="F" Min="2.02366104e+01" Max="2.43693311e+03"/>
+    <Variable VarIndex="3" Expression="llPt" Label="llPt" Title="llPt" Unit="GeV" Internal="llPt" Type="F" Min="3.81882936e-01" Max="2.39373755e+03"/>
+    <Variable VarIndex="4" Expression="llDr" Label="llDr" Title="llDr" Unit="" Internal="llDr" Type="F" Min="3.55560362e-01" Max="5.32528019e+00"/>
+    <Variable VarIndex="5" Expression="llDphi" Label="llDphi" Title="llDphi" Unit="" Internal="llDphi" Type="F" Min="9.76562500e-04" Max="3.14109540e+00"/>
+    <Variable VarIndex="6" Expression="topL1Dphi" Label="topL1Dphi" Title="topL1Dphi" Unit="" Internal="topL1Dphi" Type="F" Min="1.28068663e-02" Max="3.14140391e+00"/>
+    <Variable VarIndex="7" Expression="topL1Dr" Label="topL1Dr" Title="topL1Dr" Unit="" Internal="topL1Dr" Type="F" Min="9.42509621e-02" Max="6.21874475e+00"/>
+    <Variable VarIndex="8" Expression="topL1DptOsumPt" Label="topL1DptOsumPt" Title="topL1DptOsumPt" Unit="" Internal="topL1DptOsumPt" Type="F" Min="1.22070836e-04" Max="9.11353886e-01"/>
+    <Variable VarIndex="9" Expression="topPt" Label="topPt" Title="topPt" Unit="GeV" Internal="topPt" Type="F" Min="1.64618361e+00" Max="1.87870142e+03"/>
+  </Variables>
+  <Spectators NSpec="0"/>
+  <Classes NClass="2">
+    <Class Name="Signal" Index="0"/>
+    <Class Name="Background" Index="1"/>
+  </Classes>
+  <Transformations NTransformations="1">
+    <Transform Name="Normalize">
+      <Selection>
+        <Input NInputs="10">
+          <Input Type="Variable" Label="lep1Pt" Expression="lep1Pt"/>
+          <Input Type="Variable" Label="lep2Pt" Expression="lep2Pt"/>
+          <Input Type="Variable" Label="llM" Expression="llM"/>
+          <Input Type="Variable" Label="llPt" Expression="llPt"/>
+          <Input Type="Variable" Label="llDr" Expression="llDr"/>
+          <Input Type="Variable" Label="llDphi" Expression="llDphi"/>
+          <Input Type="Variable" Label="topL1Dphi" Expression="topL1Dphi"/>
+          <Input Type="Variable" Label="topL1Dr" Expression="topL1Dr"/>
+          <Input Type="Variable" Label="topL1DptOsumPt" Expression="topL1DptOsumPt"/>
+          <Input Type="Variable" Label="topPt" Expression="topPt"/>
+        </Input>
+        <Output NOutputs="10">
+          <Output Type="Variable" Label="lep1Pt" Expression="lep1Pt"/>
+          <Output Type="Variable" Label="lep2Pt" Expression="lep2Pt"/>
+          <Output Type="Variable" Label="llM" Expression="llM"/>
+          <Output Type="Variable" Label="llPt" Expression="llPt"/>
+          <Output Type="Variable" Label="llDr" Expression="llDr"/>
+          <Output Type="Variable" Label="llDphi" Expression="llDphi"/>
+          <Output Type="Variable" Label="topL1Dphi" Expression="topL1Dphi"/>
+          <Output Type="Variable" Label="topL1Dr" Expression="topL1Dr"/>
+          <Output Type="Variable" Label="topL1DptOsumPt" Expression="topL1DptOsumPt"/>
+          <Output Type="Variable" Label="topPt" Expression="topPt"/>
+        </Output>
+      </Selection>
+      <Class ClassIndex="0">
+        <Ranges>
+          <Range Index="0" Min="2.7810155868530273e+01" Max="2.5016052246093750e+03"/>
+          <Range Index="1" Min="2.0022262573242188e+01" Max="6.9446978759765625e+02"/>
+          <Range Index="2" Min="2.4625223159790039e+01" Max="2.4369331054687500e+03"/>
+          <Range Index="3" Min="6.7070641517639160e+00" Max="2.3937375488281250e+03"/>
+          <Range Index="4" Min="3.5556036233901978e-01" Max="5.3252801895141602e+00"/>
+          <Range Index="5" Min="7.5195312500000000e-02" Max="3.1410953998565674e+00"/>
+          <Range Index="6" Min="4.6877539157867432e-01" Max="3.1414039134979248e+00"/>
+          <Range Index="7" Min="4.6992647647857666e-01" Max="5.5604438781738281e+00"/>
+          <Range Index="8" Min="1.2207083636894822e-04" Max="8.7935823202133179e-01"/>
+          <Range Index="9" Min="1.3306205749511719e+01" Max="1.8787014160156250e+03"/>
+        </Ranges>
+      </Class>
+      <Class ClassIndex="1">
+        <Ranges>
+          <Range Index="0" Min="2.5864868164062500e+01" Max="3.4677276611328125e+02"/>
+          <Range Index="1" Min="2.0028251647949219e+01" Max="1.8275848388671875e+02"/>
+          <Range Index="2" Min="2.0236610412597656e+01" Max="8.3325622558593750e+02"/>
+          <Range Index="3" Min="3.8188293576240540e-01" Max="2.9684741210937500e+02"/>
+          <Range Index="4" Min="4.5606333017349243e-01" Max="4.9299740791320801e+00"/>
+          <Range Index="5" Min="9.7656250000000000e-04" Max="3.1381657123565674e+00"/>
+          <Range Index="6" Min="1.2806866317987442e-02" Max="3.1413927078247070e+00"/>
+          <Range Index="7" Min="9.4250962138175964e-02" Max="6.2187447547912598e+00"/>
+          <Range Index="8" Min="6.9894606713205576e-04" Max="9.1135388612747192e-01"/>
+          <Range Index="9" Min="1.6461836099624634e+00" Max="4.8265130615234375e+02"/>
+        </Ranges>
+      </Class>
+      <Class ClassIndex="2">
+        <Ranges>
+          <Range Index="0" Min="2.5864868164062500e+01" Max="2.5016052246093750e+03"/>
+          <Range Index="1" Min="2.0022262573242188e+01" Max="6.9446978759765625e+02"/>
+          <Range Index="2" Min="2.0236610412597656e+01" Max="2.4369331054687500e+03"/>
+          <Range Index="3" Min="3.8188293576240540e-01" Max="2.3937375488281250e+03"/>
+          <Range Index="4" Min="3.5556036233901978e-01" Max="5.3252801895141602e+00"/>
+          <Range Index="5" Min="9.7656250000000000e-04" Max="3.1410953998565674e+00"/>
+          <Range Index="6" Min="1.2806866317987442e-02" Max="3.1414039134979248e+00"/>
+          <Range Index="7" Min="9.4250962138175964e-02" Max="6.2187447547912598e+00"/>
+          <Range Index="8" Min="1.2207083636894822e-04" Max="9.1135388612747192e-01"/>
+          <Range Index="9" Min="1.6461836099624634e+00" Max="1.8787014160156250e+03"/>
+        </Ranges>
+      </Class>
+    </Transform>
+  </Transformations>
+  <MVAPdfs/>
+  <Weights>
+    <Layout NLayers="3">
+      <Layer Index="0" NNeurons="11">
+        <Neuron NSynapses="15">
+          -1.6418428761984603e+00 1.9930575264976946e+00 2.4495213767838515e+00 1.7622298051443672e+00 -2.2438957730130151e+00 1.0909090851205421e+00 -4.3153670638235953e-01 2.7084101657156343e+00 -3.6467955600153129e-01 -1.3697024699038840e+00 -3.2232194181656184e+00 1.2750881387007895e-01 -1.2249254588829634e+00 1.1898791654631291e+00 -2.4424863678535131e+00 
+        </Neuron>
+        <Neuron NSynapses="15">
+          6.1181466312353927e-01 -4.0045947301853363e-01 1.1178658951810148e+00 2.7139912602425492e-01 1.2611984349855199e+00 -1.2245048153264777e+00 -4.3834232053373895e-01 -4.7418511804984888e-02 2.5571646161194522e-01 -1.4446018675305570e+00 4.9405224550407445e-01 1.4717227997082589e+00 -1.0555727516751912e+00 -2.2915155101814144e+00 -1.3025522372378215e-01 
+        </Neuron>
+        <Neuron NSynapses="15">
+          -3.6584990452859373e-01 1.6641410844544198e+00 4.0752025191278113e-01 -9.9894904091301889e-02 9.9739417356697474e-02 8.9123647485096547e-01 -1.1429096974329147e+00 1.7915376483456589e+00 -3.5288606999630751e-01 9.3957750251295424e-01 8.3175650482989671e-01 1.3140169077382835e+00 1.9010007506159514e+00 2.2200860634852284e+00 -2.0497196141293594e+00 
+        </Neuron>
+        <Neuron NSynapses="15">
+          -2.6979214770755435e+00 7.7593159188132221e-01 1.3352802957731491e+00 1.5358649431577807e+00 1.2517221599809925e+00 3.7013783535544627e+00 1.5898234052344173e+00 -1.0377029991775051e+00 2.1839142195360037e+00 -2.2382153625863004e+00 -2.5502431331753557e+00 -8.2172350114333181e-01 -1.7336784224926705e+00 2.9641231986271483e+00 -5.2398734840370442e-01 
+        </Neuron>
+        <Neuron NSynapses="15">
+          -1.5113714041299791e+00 3.9124383997016166e-01 -1.2231704181109795e+00 6.9180518325224849e-01 2.0931781567120891e+00 -2.2312531969268283e+00 2.0559898327754308e-01 -2.1019539279019397e+00 1.0145972188404464e+00 -7.4562253038337867e-01 -3.8729140028913328e-01 -6.5307153749355218e-01 7.2684131896355686e-01 1.8649709651256490e+00 2.1502512849399742e+00 
+        </Neuron>
+        <Neuron NSynapses="15">
+          -1.0476290020534016e+00 -1.9357361854886952e+00 -4.0467136977815354e-01 9.5225557618247025e-01 6.2457372618223106e-01 1.0257496094614944e+00 1.0944756703315794e+00 1.0214915789061370e+00 -4.2858129785112337e-01 -5.0172556886242103e-01 1.3121988940819764e+00 2.0219565887696924e+00 -1.1549889650343088e+00 -1.3119011678692072e+00 -1.5461436239837087e+00 
+        </Neuron>
+        <Neuron NSynapses="15">
+          -1.4384111552474952e+00 -1.5150823882879003e-01 2.7217566424193795e+00 -1.6516010652144777e+00 -2.9307487641041441e-01 4.5227878886855033e-01 -6.7294220984600117e-01 -1.9983405530985670e+00 -1.9379961234236001e+00 6.6435872898863335e-01 -5.3120490804773091e-01 -1.2974659273395150e+00 7.2498826223304935e-01 -1.3716501499465911e-01 -1.8211129882825119e+00 
+        </Neuron>
+        <Neuron NSynapses="15">
+          9.5967173379135751e-01 -9.3995553094650797e-01 -4.4588769916345455e-01 -2.4538708079952878e-03 1.2448730768778873e+00 5.2711425767177300e-01 2.0040342035754966e-01 8.3153654244316577e-01 1.7888122459140816e+00 -1.3312574990120121e+00 6.5274450328176103e-01 9.7913886127896754e-01 -9.3601702084617522e-01 1.6482914867503999e+00 -2.3611638154365671e+00 
+        </Neuron>
+        <Neuron NSynapses="15">
+          -5.7496475568893157e-01 1.3720362972846731e-01 1.1677985196535703e+00 1.6992999701686413e+00 1.3070174904662601e+00 4.6363836460941554e-01 -1.0290485388087633e+00 1.1044084567176382e+00 -1.4527213879105421e+00 5.1984348582897355e-01 3.2552756266075528e-01 -2.9889502418330536e+00 7.0025273811454070e-01 -5.6498543130754875e-01 1.7025249825664563e+00 
+        </Neuron>
+        <Neuron NSynapses="15">
+          -3.1416229099519183e-01 1.7917996345729919e+00 -5.7361516552035774e-01 4.6076431361694437e-01 1.2532398527405240e+00 2.5917574469286913e+00 3.8892766803175943e-01 -1.2455312829590028e+00 -8.7562357418271264e-01 -1.6687922327784377e+00 2.4491464966220859e+00 1.7406348258057638e+00 -4.6188297662561750e-01 4.2748397328083437e-01 -1.4826591947339449e+00 
+        </Neuron>
+        <Neuron NSynapses="15">
+          -3.5907784016378996e+00 5.8017653416960646e-01 3.8093253944799126e+00 -6.9221682831222808e-01 -4.2899877377888512e-01 5.2005798831312271e+00 1.0836295497949000e+00 2.8259351581447714e+00 2.3204689078775229e+00 -8.6284899308879293e-01 -8.2828550196047557e-01 1.8050964782264016e+00 4.7405440194993154e-01 3.3119991263831143e+00 -3.3180623229894796e-01 
+        </Neuron>
+      </Layer>
+      <Layer Index="1" NNeurons="16">
+        <Neuron NSynapses="1">
+          -1.9819083496368499e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          -8.9616426193229448e-01 
+        </Neuron>
+        <Neuron NSynapses="1">
+          1.6404724939883863e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          -1.1072477252942319e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          -1.7951612499112066e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          2.4975799056906411e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          1.2505966984807935e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          1.6004364973337639e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          1.5888504276114988e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          1.3924984188211029e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          -2.6427300423878388e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          1.0318774492623890e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          6.6433140308636118e-02 
+        </Neuron>
+        <Neuron NSynapses="1">
+          2.4571461689158172e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          -2.7652843385907246e+00 
+        </Neuron>
+        <Neuron NSynapses="1">
+          -1.2047340982523149e+00 
+        </Neuron>
+      </Layer>
+      <Layer Index="2" NNeurons="1">
+        <Neuron NSynapses="0"/>
+      </Layer>
+    </Layout>
+  </Weights>
+</MethodSetup>
